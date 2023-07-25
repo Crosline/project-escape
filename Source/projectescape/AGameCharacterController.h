@@ -24,6 +24,12 @@ public:
 	UInputAction* MovementAction;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input)
 	UInputAction* LookAction;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input)
+	UInputAction* JumpAction;
+
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Movement)
+	float JumpVelocity {420.0f};
 	
 protected:
 	virtual void SetupInputComponent() override;
@@ -37,4 +43,5 @@ private:
 	void OnMove(const FInputActionValue& actionValue);
 	void Move(APawn* controlledPawn, const FVector2D movementVector2D);
 	void OnLook(const FInputActionValue& actionValue);
+	void OnJump();
 };
